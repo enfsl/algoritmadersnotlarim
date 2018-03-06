@@ -58,15 +58,23 @@ namespace Application
     }
 }
 
-/**/
+/* Değer - Referans tip örneği*/
 using System;
 
 namespace Application
 {
     class Program
     {
+        static void ornek(ref int a)
+        {
+            a=20;
+        }
         static void Main(string[] args)
         {
+            int b = 10;
+            Console.WriteLine(b)
+            ornek(ref b);
+            Console.WriteLine(b);
         }
     }
 }
