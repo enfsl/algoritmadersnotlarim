@@ -71,9 +71,9 @@ namespace Application
         }
         static void Main(string[] args)
         {
-            int b = 10;
+            int b = 10; // ilk başta ekrana 10 yazar çünkü değer tipte bir değişken
             Console.WriteLine(b)
-            ornek(ref b);
+            ornek(ref b); // şimdi b değişkenini referans yaptığımız için 20 yazacak
             Console.WriteLine(b);
         }
     }
