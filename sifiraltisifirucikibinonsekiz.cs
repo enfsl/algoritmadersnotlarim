@@ -38,7 +38,7 @@ namespace Application
             for(int i=0; i<d.Lenght;i++)
                 if(d[i]%2==1)
                 {
-                    gdds[s]=d[i];
+                    gdd[s]=d[i];
                     s++;
                 }
             return gdd;
