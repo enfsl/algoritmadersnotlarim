@@ -1,2 +1,17 @@
 1- Derslerdeki notlar gün-ay-yıl şeklinde girilecek
 2- yanlara notlar düşülecek
+
+- Başlangıç
+
+/**/
+using System;
+
+namespace Application
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}
