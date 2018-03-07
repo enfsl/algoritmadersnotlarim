@@ -124,3 +124,52 @@ namespace Application
         }
     }
 }
+
+/*biliçnsiz tip dönüşümüyle int'i doubleye cast ettik*/
+using System;
+
+namespace Application
+{
+    class Ornek
+    {
+        static void Test(double a,double b)
+        {
+            Console.WriteLine("double'li metot çalıştı");
+        }
+        static void Test(decimal a, decimal b)
+        {
+            Console.WriteLine("decimal'li metot çalıştı");
+        }
+        static void Test(float a, float b)
+        {
+            Console.WriteLine("float'li metot çalıştı");
+        }
+        static void Main(string[] args)
+        {
+            Test(3.4d, 4.77d);
+            Test(3, 4d);
+        }
+    }
+}
+
+/*ram'de daha az yer tuttuğu için float olarak dönecek*/
+using System;
+
+namespace Application
+{
+    class Ornek
+    {
+        static void Test(double a,double b)
+        {
+            Console.WriteLine("double'li metot çalıştı");
+        }
+        static void Test(float a, float b)
+        {
+            Console.WriteLine("float'li metot çalıştı");
+        }
+        static void Main(string[] args)
+        {
+            Test(3, 4);
+        }
+    }
+}
