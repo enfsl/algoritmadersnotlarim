@@ -174,7 +174,7 @@ namespace Application
     }
 }
 
-/**/
+/*bilinçsiz tip dönüşümü.*/
 using System;
 
 namespace Application
