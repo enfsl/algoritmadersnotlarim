@@ -1,5 +1,5 @@
 /*out ile değişkeni referans yapma
-out kullanırken değişkene ilk değer atamak zorunda değiliz*/
+out kullanırken değişkene ilk değer atamak zorunda değilim*/
 using System;
 
 namespace Application
@@ -49,7 +49,8 @@ namespace Application
     }
 }
 
-/**/
+/*bilinçsiz tip dönüşümü var int byte'ı kapsadığı için ekranda 2 tane
+int'li metot çalıştı yazısını görüyorum*/
 using System;
 
 namespace Application
@@ -95,6 +96,31 @@ namespace Application
             byte a = 5;
             short b = 10;
             Test(a, b);
+        }
+    }
+}
+
+/*char burda biliçnsizde int'e dönüyor*/
+using System;
+
+namespace Application
+{
+    class Ornek
+    {
+        static void Test(int a,int b)
+        {
+            Console.WriteLine("int'li metot çalıştı");
+        }
+        static void Test(string a, string b)
+        {
+            Console.WriteLine("string'li metot çalıştı");
+        }
+        static void Main(string[] args)
+        {
+            byte a = 5;
+            short b = 10;
+            Test(a, b);
+            Test(3, 'd');
         }
     }
 }
