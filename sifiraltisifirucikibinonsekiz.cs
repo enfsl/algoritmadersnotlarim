@@ -2,6 +2,13 @@
 
 using System;
 
+/* İndis bulma da anlamadığım bir yer var
+kendim denerken j'yi 10 olarak bıraktım.
+ j = 10 , s.lenght'i 12 yaptım
+ s[j]'sinin 10'a eşit olmasını sağladım,
+ 10'uncu karakterin chara eşit olmasını sağladım
+ fakat 10'uncu karakteri değil 11'inci karakteri chara eşitlersem
+ döndürüyor.*/
 namespace Application
 {
     class Program
