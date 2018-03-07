@@ -173,3 +173,36 @@ namespace Application
         }
     }
 }
+
+/**/
+using System;
+
+namespace Application
+{
+    class Ornek
+    {
+        static string topla(string s1, string s2)
+        {
+            Console.WriteLine("1.metot");
+            return s1 + s2;
+        }
+        static int topla(short a, short b)
+        {
+            Console.WriteLine("2.metot");
+            return a + b;
+        }
+        static int topla(int a, int b)
+        {
+            Console.WriteLine("3.metot");
+            return a + b;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(topla("Prog.", "tekn."));
+            Console.WriteLine(topla(3, 'c'));
+            byte a = 3;
+            short b = 333;
+            Console.WriteLine(topla(a, b));
+        }
+    }
+}
