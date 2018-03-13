@@ -69,3 +69,45 @@ namespace derstekikodlaricalistirma
         }
     }
 }
+
+/* params kullanırken params en sonda olmalıdır */
+using System;
+
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static void ornek(int a,params int[] d)
+        {
+
+        }
+        static void Main(string[] args)
+        {
+            ornek(3, 4, 5, 8);
+        }
+    }
+}
+
+/* OVERLOADLI PARAMS ÖRNEĞİ (tamamen uyumlu olan kod daha önce çalıştırılıyor
+ornek(3,4) int a , int b için daha uyumlu) (eğer ornek() bir sayı daha fazla
+girilseydi "ornek(3,4,5)" gibi paramslı çalışacaktı.*/
+using System;
+
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static void ornek(params int[] d)
+        {
+            Console.Write("paramslı");
+        }
+        static void ornek(int a, int b)
+        {
+            Console.Write("intli");
+        }
+        static void Main(string[] args)
+        {
+            ornek(3, 4);
+        }
+    }
+}
