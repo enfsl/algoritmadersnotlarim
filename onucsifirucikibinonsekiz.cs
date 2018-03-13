@@ -111,3 +111,22 @@ namespace derstekikodlaricalistirma
         }
     }
 }
+
+/*Recursive metot ile faktöriyel bulma */
+using System;
+
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static int fkt(int a)
+        {
+            if (a == 1) return 1; // düğüm noktası
+            else return a * fkt(a - 1);
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(fkt(5));
+        }
+    }
+}
