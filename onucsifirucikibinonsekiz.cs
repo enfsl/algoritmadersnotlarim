@@ -42,3 +42,30 @@ namespace derstekikodlaricalistirma
 
 /* parametre olarak aldığı n adet sayının ilki tekse toplayan, çiftse çarparak
 sonucu bulan metotu yazınız. */
+using System;
+
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static int toplam(params int[] d)
+        {
+            int t = 0;
+            if(d[0]%2 ==1)
+            foreach (int i in d)
+                t += i;
+            else
+            {
+                t = 1;
+                foreach (int i in d)
+                    t *= i;
+            }
+            return t;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(toplam(5, 8, 9));
+            Console.WriteLine(toplam(5, 3, 33, 44));
+        }
+    }
+}
