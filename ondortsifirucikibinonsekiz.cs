@@ -125,3 +125,71 @@ namespace derstekikodlaricalistirma
         }
     }
 }
+
+/*Opsiyonel Parametreli metot*/
+using System;
+
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static int topla(int a, int b=4) 
+//  metot parametresi ayarlarken değişkene ilk değeri yüklüyoruz
+        {
+            return a + b;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(topla(3, 10));
+            Console.WriteLine(topla(3));
+        }
+    }
+}
+
+/*Opsiyonel Parametreli metot 2*/
+using System;
+
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static int topla(int b, int c=15)
+        {
+            return b+c;
+        }
+        static string tpl (string s="ders",int a=7,int b=9)
+        {
+            return s+" " + a + " " + b;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(topla(3, 10));
+            Console.WriteLine(topla(9));
+            Console.WriteLine(tpl());
+        }
+    }
+}
+
+/*Opsiyonel Parametreli metot
+ */
+ using System;
+
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static int topla(int a = 5, int b=10)
+        {
+            return a + b;
+        }
+        static int topla1(int a, int b)
+        {
+            return a + b;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(topla(b:8)); // Named : 8'in hangisine gitmesini istiyorsan onun başına (değişken:) şeklinde yazıyoruz
+            Console.WriteLine(topla(b: 5, a: 3));
+        }
+    }
+}
