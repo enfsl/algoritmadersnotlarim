@@ -130,7 +130,7 @@ namespace derstekikodlaricalistirma
             Console.WriteLine(String.Compare("ali", "veli")); // 0, 1, -1 değeri döndürür.
             Console.WriteLine(String.Compare("Ali", "veli"));
             Console.WriteLine(String.Compare("ali", "ali"));
-            Console.WriteLine(String.Compare("ali", "ALİ",false));
+            Console.WriteLine(String.Compare("ali", "ALİ",false));//opsiyonel parametreli değişken olarak false getirdik.
             Console.WriteLine(String.Compare("ali", "ALİ", true));
 
         }
