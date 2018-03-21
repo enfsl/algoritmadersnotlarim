@@ -79,7 +79,10 @@ namespace derstekikodlaricalistirma
             string d = "2017212036";
             Console.WriteLine(d.Substring(4,6)); //bir stringin içerisinden belirli bir string parçasını alıp kopyalar
 
-
+            string ad = "ali,veli,ayşe";
+            string[] adizi = ad.Split(','); //Split ayraç demektir, bir stringi parçalayarak(ayıraçla) bir diziye yerleştirir.
+            foreach(string s in adizi)
+                Console.WriteLine(s);
 
         }
     }
