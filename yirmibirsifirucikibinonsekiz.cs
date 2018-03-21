@@ -84,6 +84,9 @@ namespace derstekikodlaricalistirma
             foreach(string s in adizi)
                 Console.WriteLine(s);
 
+            string isim = String.Join("-",adizi); //bir string diziyi bir string değişkene aktarır(SPLİT'İN TERSİ İŞ YAPAR)
+            Console.WriteLine(isim);
+
         }
     }
 }
