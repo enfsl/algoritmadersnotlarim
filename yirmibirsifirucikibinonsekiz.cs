@@ -84,3 +84,26 @@ namespace derstekikodlaricalistirma
         }
     }
 }
+
+
+/*sınıf numarasından bölüm bulma*/
+using System;
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static string bolbul(string ono)
+        {
+            string d = "";
+            string o = ono.Substring(4, 3);
+            if (o == "212") d = "YBS";
+            else if (o == "207") d = "İKT";
+            else d = "diğer";
+            return d;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(bolbul("2017212036"));
+        }
+    }
+}
