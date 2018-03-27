@@ -1,0 +1,59 @@
+/*Kolleksiyonlar konusunu bu gün işliyoruz.. */
+
+/*kolleksiyon sınıfını kullanmak için ; using System.Collection eklenmeli */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static void yaz(ArrayList al)
+        {
+            foreach(object o in al)
+                Console.Write(o+" ");
+            Console.WriteLine();
+            Console.WriteLine("Terim Sayısı : "+al.Count);
+            // Dizilerdeki lenght'e benzer. Count terim sayısını verir (Count bir metot değildir parantez açılmaz !)
+            Console.WriteLine("Kapasitesi : "+al.Capacity); // kapasitesini görme (kaç kb yer tutuyor ramda)
+            Console.WriteLine("-------------------------------");
+        }
+        static void Main(string[] args)
+        {
+            ArrayList al; // (Ayrılan alan dinamiktir)
+            al = new ArrayList(); // diye tanımlayabiliriz
+           // ArrayList al1 = new ArrayList(); // yada böyle tanımlayabiliriz.
+            al.Add(5); // Add her eklediğini arkasına ekleyerek gider
+            al.Add(5.3d);
+            al.Add("Prog");
+            al.Add('Y');
+            al.Add(true);
+            al.Insert(2, "ders"); // Insert araya ekleme yapar ( dizilerdeki gibi 0dan başlar !!)
+            yaz(al);
+            al.Remove("ders"); //ArrayListin içerisinden bir değer silmek için kullanılır.
+            yaz(al);
+            al.RemoveAt(1); //Remove ismini belirttiğin nesneyi silerken RemoveAt indisini belirttiğini siler.
+            yaz(al);
+            al.TrimToSize(); // TrimToSize sildiğimiz kısımları(yerlerinde null değer kalır silince) kırpar yok eder.
+            yaz(al);
+            al.Reverse(); // diziyi ters çevirir
+            yaz(al);
+            //al.Clear(); // ArrayListin tamamını siler
+            yaz(al);
+            al.Clone(); // Bir datasetin, yığının , kolleksiyonun kopyasını çıkartır(kendi tipinden) çıkartılmış kopyayı başka bir yere atabiliriz.
+            // al.Contains(5); // ArrayList şu değeri içeriyormu diye arar true yada false değer döndürür.
+            Console.WriteLine(al.Contains(5));
+            //al.IndexOf("y");// içerisinde geçiyoru diye arar sırasını gösterir.
+            Console.WriteLine();
+        }
+    }
+}
+
+/*bir metota parametre olarak bir array list gönderiyoruz içindeki çift değerleri geri döndersin(array list ile)*/
+
+
+
