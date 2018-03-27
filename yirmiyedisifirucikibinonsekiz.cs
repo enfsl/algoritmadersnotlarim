@@ -49,11 +49,55 @@ namespace derstekikodlaricalistirma
             Console.WriteLine(al.Contains(5));
             //al.IndexOf("y");// içerisinde geçiyoru diye arar sırasını gösterir.
             Console.WriteLine();
+            /*
+            al.Add(5);
+            al.Add(15);
+            Console.WriteLine(al[0]);
+            Array list tıpkı dizi gibi çalışabilir içindeki indis karakterden değer yazdırabiliriz.
+             */
         }
     }
 }
 
-/*bir metota parametre olarak bir array list gönderiyoruz içindeki çift değerleri geri döndersin(array list ile)*/
+/*bir metota parametre olarak bir array list gönderiyoruz içindeki çift değerleri döndürsün ve başka bir array liste atsın(array list ile)*/
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static void yaz(ArrayList al)
+        {
+            foreach(object o in al)
+                Console.Write(o+" ");
+            Console.WriteLine();
+        }
+        static ArrayList dondur(ArrayList al)
+        {
+            ArrayList ald = new ArrayList();
+            foreach(object o in al)
+            {
+                if (Convert.ToInt32(o) % 2 == 0) ald.Add(o);
+            }
+            return ald;
+        }
+        static void Main(string[] args)
+        {
+            ArrayList al1 = new ArrayList();
+            Random r = new Random();
+            for (int i = 1; i < 11; i++)
+                al1.Add(r.Next(20));
+            yaz(al1);
+            ArrayList al2 = dondur(al1);
+            yaz(al2);
+
+        }
+    }
+}
 
 
