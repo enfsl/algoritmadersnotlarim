@@ -95,6 +95,19 @@ namespace derstekikodlaricalistirma
             yaz(al1);
             ArrayList al2 = dondur(al1);
             yaz(al2);
+            
+            /*önemli bunlar (örnekten ayrı)*/
+            ICollection ic = (ICollection)al2.Clone(); // farklı tipte olsaydı al2'yi ICollection'a cast ederdik
+            al1.AddRange(al2); // Addrange ICollection (interface) ister ArrayListten ArrayListe işlem yaparken gerek olmaz ama başka tipten olur.
+            yaz(al1);
+            Console.WriteLine("---------------");
+            ICollection ic1 = (ICollection)al2;
+            al1.InsertRange(2, ic1);
+            yaz(al1);
+
+            ArrayList al3 = new ArrayList(al2);
+            ArrayList al4 = new ArrayList((ICollection)al2);
+            yaz(al3);
 
         }
     }
