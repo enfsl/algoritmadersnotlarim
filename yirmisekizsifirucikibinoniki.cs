@@ -208,3 +208,128 @@ namespace derstekikodlaricalistirma
         }
     }
 }
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        //ikisini bir yazdırma (keyler ve valueler)
+        static void yaz(Hashtable ht)
+        {
+            ICollection ick = ht.Keys;
+            foreach (object o in ick)
+                Console.WriteLine(o);
+            ICollection icv = ht.Values;
+            foreach (object o in icv)
+                Console.WriteLine(o);
+        }
+        static void yazkey(Hashtable ht)
+        {
+            // hashtablenin keylerini görmek için ICollectionla nesne türetip yapıyoruz.
+            ICollection ick = ht.Keys;
+            foreach(object o in ick)
+                Console.WriteLine(o);
+        }
+        static void yazvalue(Hashtable ht)
+        {
+            // hashtablenin valuelerini görmek için ICollectionla nesne türetip yapıyoruz.
+            ICollection icv = ht.Values;
+            foreach(object o in icv)
+                Console.WriteLine(o);
+        }
+        static void Main(string[] args)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("2017212036", "emre"); // anahtar değer 2017212036
+            ht.Add("2017212037", "emre");
+            ht.Add("corolla", "toyota");
+            ht.Add("yaris", "toyota");
+            ht.Add("i30", "hyundai");
+            ht["i20"] = "hyundai"; // diye de yazabilirim tıpkı Add gibi ekleme yapar.
+            ht["2017212036"] = "aliveli"; //yoksa ekler varsa var olanın değerini değiştirir.
+            yazkey(ht);
+            yazvalue(ht);
+            yaz(ht);
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static void yazbirlikte(Hashtable ht) // hem keyini hemde valuesini birlikte taşır
+        {
+            foreach(DictionaryEntry de in ht)
+                Console.WriteLine("anahtar = {0} Değer = {1}",de.Key, de.Value);
+        }
+        static void Main(string[] args)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("2017212036", "emre"); // anahtar değer 2017212036
+            ht.Add("2017212037", "emre");
+            ht.Add("corolla", "toyota");
+            ht.Add("yaris", "toyota");
+            ht.Add("i30", "hyundai");
+            ht["i20"] = "hyundai"; // diye de yazabilirim tıpkı Add gibi ekleme yapar.
+            ht["2017212036"] = "aliveli"; //yoksa ekler varsa var olanın değerini değiştirir.
+            yazbirlikte(ht);
+        }
+    }
+}
+
+/*kendisine parametre olarak gelen bir array listin içinde hangi sayıdan kaç tane geçtiğini bulup bir hashtable ile döndüren
+* metotu yazınız */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static Hashtable AdetBul(ArrayList al)
+        {
+            Hashtable ht = new Hashtable();
+            foreach (object o in al)
+                if (ht.ContainsKey(o) == true) ht[o] =(int)ht[o] + 1;
+                else ht.Add(o, 1);
+            return ht;
+        }
+        static void yazal(ArrayList al)
+        {
+            foreach(object o in al)
+                Console.Write(o+" ");
+        }
+        static void yazht(Hashtable ht)
+        {
+            foreach(DictionaryEntry de in ht)
+                Console.WriteLine("Anahtar = {0}, Değer = {1}",de.Key,de.Value);
+        }
+        static void Main(string[] args)
+        {
+            ArrayList al = new ArrayList();
+            Random r = new Random();
+            for (int i = 1; i < 21; i++)
+                al.Add(r.Next(10));
+            yazal(al);
+            Hashtable ht = AdetBul(al);
+            yazht(ht);
+
+        }
+    }
+}
