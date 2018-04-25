@@ -202,3 +202,22 @@ namespace derstekikodlaricalistirma
         }
     }
 }
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        static int a = 8;
+        static void Main(string[] args)
+        {
+            // int a = 10;
+            Console.WriteLine(a); // önce bakar metotun içinde tanımlı a varsa onu kullanır yoksa
+            // sınıfın içindeki a'yı kullanır ( static yazmadık nesne türetmedik çünkü aynı sınıftalar
+        }
+    }
+}
