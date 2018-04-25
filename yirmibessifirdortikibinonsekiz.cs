@@ -159,3 +159,46 @@ namespace derstekikodlaricalistirma
         }
     }
 }
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace derstekikodlaricalistirma
+{
+    class Program
+    {
+        int a = 8; // sınıfın içinde ilk değer ataması yaptık
+        static void Main(string[] args)
+        {
+            // nesne türetmemiz gerekti
+            Program p = new Program();
+            Console.WriteLine(p.a); // sınıftan türettiğimiz nesne
+            int a = 10; // değer olarak atadık
+            Console.WriteLine(a);
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace derstekikodlaricalistirma
+{
+    class deneme
+    {
+        public static int a = 8;
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(deneme.a);
+            int a = 10;
+            Console.WriteLine(a);
+        }
+    }
+}
