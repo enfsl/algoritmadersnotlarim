@@ -255,3 +255,369 @@ namespace Derscalısırken
 | Tanımlandığı yer: Static Değil | Kullanıldığı yer: Static Değil | Biçim: Direk(SınıfınAdı.MetotunAdı) |
 ---------------------------------------------------------------------------------------------------------
 */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Derscalısırken
+{
+    class Program
+    {
+        /* Object bir metot tanımlayıp, object bir dizinin içindekileri ekrana yazdırıyorum.*
+         * önce dizimi array olarak tanımladım, değişkenimi object olarak tanımlayamıyorum direk Array
+         * sınıfını dahil ediyorum.*/
+        static void Diziyaz(Array dizi)
+        {
+            foreach(object o in dizi)
+                Console.WriteLine(o);
+        }
+        static void Main(string[] args)
+        {
+            object[] d = { 1, 2, 3, "ali", "velvela", 1, 2.333};
+            Program.Diziyaz(d); // burda nesne türetmedim metot static olsa bile başına sınıf.metotun ismi olarak kullanmak daha iyi
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Derscalısırken
+{
+    class Program
+    {
+        /*Kendisine parametre olarak gelen dizideki sayının en küçüğünü bulup döndüren diziyi(programı) yaz*/
+        /*metotumu tanımlıyorum parametre olarakta int bir dizi tanımlıyorum.
+         bloğun içerisinde k diye bir değişken tanımlayıp içerisine, parametre olarak tanımladığım d dizisinin 0'ıncı terimini
+         atıyorum, for döngüsü kurup i'yi sıfırdan başlatıyorum ve şart olarak i küçük ise d dizisinin uzunluğundan,
+         döngüye devam etsin diyorum, her turda 1 arttırıyorum.
+         eğer d dizisinin i'si k'dan küçük ise, d dizisinin i'sini k'nın içine atıyorum.
+         return ile k'yı dönderiyorum.*/
+        int KucukBul(int []d)
+        {
+            int k = d[0];
+            for (int i = 0; i <d.Length; i++)
+                if (d[i] < k) k = d[i];
+            return k;
+        }
+        static void Main(string[] args)
+        {
+            /*dizimi tanımlıyorum, sınıftan nesnemi türetiyorum ve ekrana yazdırıyorum.*/
+            int[] dizi = { 5, 3, 4, 1, 8 };
+            Program p = new Program();
+            Console.WriteLine(p.KucukBul(dizi));
+        }  
+    }
+}
+
+
+/*Bu örneğe birdaha bak...*/
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Derscalısırken
+{
+    class Program
+    {
+        /*Dizideki tek sayıları döndürme*/
+        /* metot'u dizi olarak tanımlıyorum, parametre olarakta bir dizi tanımlıyorum, a diye bir değişken oluşturup içine 0 
+         * değerini atıyorum. foreach döngüsü ile d dizisinin her terimini 2'e modluyorum kalan 1 ise a'yı 1 arttırıyorum.
+         * geri dönecek dizimi tanımlıyorum ve uzunluğunu a değişkenin içindeki değer kadar yapıyorum.
+         * s diye bir değişken tanımlayıp içine sıfır değeri atıyorum.
+         * bir döngü oluşturup i'yi sıfırdan başlatıp, i d dizisinden küçük olduğu sürece bir arttırıyorum
+         * eğer d dizisinin i'si 2'ye modlandığında kalan bir ise geri dönecek dizimin s'nin içine d dizisinin i'sini atıyorum.
+         * ve s'i bir arttırıyorum. return ile geri dönecek olan dizimi döndürüyorum.
+         */
+        int[] dondur(int[]d)
+        {
+            int a = 0;
+            foreach (int i in d)
+                if (i % 2 == 1) a++;
+            int[] geridonecekdizi = new int[a];
+            int s = 0;
+            for(int i=0; i<d.Length; i++)
+                if(d[i]%2==1)
+                {
+                    geridonecekdizi[s] = d[i];
+                    s++;
+                }
+            return geridonecekdizi;
+        }
+        /* ekrana yazdırma metotu yazıyorum, ve d dizisinin terimlerini yazdırıyorum */
+        static void yaz(int []d)
+        {
+            foreach(int i in d)
+                Console.WriteLine("{0} ",i);
+        }
+        static void Main(string[] args)
+        {
+            /*dizimi tanımlayıp nesne türetiyorum, dd diye bir dizi tanımlayıp içerisine yazdığım metot ile, dizinin tek
+             * sayılarını belirlediğim diziyi atıyorum ve ekrana yazdırıyorum.*/
+            int[] dizi = { 1, 2, 22, 52, 55, 3, 5, 9, 99, 100 };
+            Program p = new Program();
+            int[] dd = p.dondur(dizi);
+            yaz(dd);
+        }  
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Derscalısırken
+{
+    class Program
+    {
+        /*Değer ve Referans Tip.*/
+        /*Değişkenler 2 tiptedir değer ve referans tip.
+         *Diziler Referans Tiptedir.
+         *Değer tipteki değişkenler işe sokulurken o değeri kopyalar, kopyalanmış değişkende işlem yapar.
+         *Referans tipteki değişkenler işleme sokulurken kopyalanmaz üzerinde işlem yapılır.*/
+
+        static void ornek(ref int a)
+        {
+            a = 20;
+        }
+        static void Main(string[] args)
+        {
+            int b = 10; // ilk başta ekrana 10 yazar çünkü değer tipte bir değişken
+            Console.WriteLine(b);
+            ornek(ref b); // şimdi b değişkenini referans yaptığımız için 20 yazacak
+            Console.WriteLine(b);
+        }  
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Derscalısırken
+{
+    class Program
+    {
+        /*OUT*/
+        /*out ile değişkeni referansa çeviririz.
+         *out ile tanımladığım deişkenlere ilk değer atamak zorunda değilim.*/
+        static void ornek(out int a)
+        {
+            a = 20;
+        }
+        static void Main(string[] args)
+        {
+            int b;
+            ornek(out b);
+            Console.WriteLine(b);
+        }  
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Derscalısırken
+{
+    class Program
+    {
+        /*OVERLOAD*/
+        /*Her metotun bir imzası vardır.
+         Metotun imzasını belirleyen metotun adı, parametrelerinin sayısı ve parametrelerinin tipidir.
+         Metotları birbirinden ayıran imzasıdır !*/
+        static void test(int a, int b)
+        {
+            Console.WriteLine("İnt'li metot çalıştı");
+        }
+        static void test(string a, string b)
+        {
+            Console.WriteLine("string'li metot çalıştı");
+        }
+        static void test(float a, float b)
+        {
+            Console.WriteLine("float'li metot çalıştı");
+        }
+        static void Main(string[] args)
+        {
+            test("prog", "ders");
+            test(3, 4);
+            test(3.45f, 1.2f);
+        }  
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Derscalısırken
+{
+    class Program
+    {
+        /*Overload*/
+        /*bilinçsiz tip dönüşümü var int byte'ı kapsadığı için ekranda 2 tane
+        int'li metot çalıştı yazısını görüyorum*/
+        static void test(int a, int b)
+        {
+            Console.WriteLine("İnt'li metot çalıştı");
+        }
+        static void test(byte a, byte b)
+        {
+            Console.WriteLine("byte'li metot çalıştı");
+        }
+        static void Main(string[] args)
+        {
+            test(33, 44);
+            test(333, 444);
+        }  
+    }
+}
+
+/*ram'de daha az yer tuttuğu için float olarak dönecek*/
+using System;
+
+namespace Application
+{
+    class Ornek
+    {
+        static void Test(double a,double b)
+        {
+            Console.WriteLine("double'li metot çalıştı");
+        }
+        static void Test(float a, float b)
+        {
+            Console.WriteLine("float'li metot çalıştı");
+        }
+        static void Main(string[] args)
+        {
+            Test(3, 4);
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Derscalısırken
+{
+    class Program
+    {
+        /*Params*/
+        /*n adet parametre göndermek için kullanılır*/
+        /*Params sonda kullanılmalıdır ! (static void ornek(int a,params int []d) şeklinde*/
+        static void ornek(params int[]d)
+        {
+            Console.WriteLine(d[2]);
+        }
+        static void Main(string[] args)
+        {
+            ornek(5, 8, 9);
+        }
+    }
+}
+
+/*buna bak */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Derscalısırken
+{
+    class Program
+    {
+        /*Params*/
+        /*parametre olarak aldığı n adet sayıyı toplayarak sonucu döndüren
+         *metotu yazıp kullanımını gösterin.*/
+        static int toplam(params int[]d)
+        {
+            int t = 0;
+            foreach (int i in d)
+                t += i;
+            return t;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(toplam(5,8,9));
+            Console.WriteLine(toplam(50, 30, 20));
+
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Derscalısırken
+{
+    class Program
+    {
+        /*Overloadlı params örneği*/
+        /*eğer 2 tane yerine 3 tane parametre gönderseydim paramslı olan çalışacaktı, 2 tane gönderdiğimde
+         en uyumlu int olduğu için o çalıştı.*/
+        static void ornek(params int[]d)
+        {
+            Console.WriteLine("paramslı");
+
+        }
+        static void ornek(int a, int b)
+        {
+            Console.WriteLine("int'li");
+        }
+        static void Main(string[] args)
+        {
+            ornek(3, 4,5);
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Derscalısırken
+{
+    class Program
+    {
+        /*Recursive metotlar*/
+        /*Öz yinelemeli, kendi kendisini çağıran metotlardır
+         bir çözüm için geliştirdiğimiz förmül kendi içindeki sorunlara çözüm oluyorsa kullanılır*/
+         //Recursive metot ile faktöriyel bulma
+         static int Faktoriyel(int a)
+        {
+            if (a == 1) return 1; // düğüm noktası
+            else return a * Faktoriyel(a - 1);
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(Faktoriyel(5));
+        }
+    }
+}
