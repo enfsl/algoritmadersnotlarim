@@ -268,3 +268,44 @@ namespace derstekikodlaricalistirma
         }
     }
 }
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace derstekikodlaricalistirma
+{
+    class Cember
+    {
+        private double r;
+        private double pi = 3d;
+        public void rBelirle(double r)
+        {
+            r = Math.Abs(r);
+            this.r = r;   
+        }
+        public double rVer()
+        {
+            return r;
+        }
+        public void piBelirle(double p)
+        {
+            if (pi < 3 || pi >= 3.15) pi = 3d;
+        }
+        public double Cevre()
+        {
+            return 2 * pi * r;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Cember c1 = new Cember();
+            c1.rBelirle(-2);
+            c1.piBelirle(2.14);
+            Console.WriteLine("yarıçap = {0}",c1.rVer());
+        }
+    }
+}
