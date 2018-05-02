@@ -185,6 +185,7 @@ namespace derstekikodlaricalistirma
     }
 }
 
+/*Litaratürde bu işleme kapsülleme denir. */
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -195,7 +196,7 @@ namespace derstekikodlaricalistirma
     class Cember
     {
         private double r;
-        public double pi = 3d;
+        private double pi = 3d;
         public void rBelirle(double yc)
         {
             // kullanıcı - girdiği zaman sonucumuz eksi çıkmasın diye
