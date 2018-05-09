@@ -209,3 +209,40 @@ namespace derstekikodlaricalistirma
         }
     }
 }
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace derstekikodlaricalistirma
+{
+    // yıkıcı örnek
+    // yıkıcı metotun erişim belirteci kullanılmaz
+    // void felan belirtilmez
+    // yıkıcı metotun adı sınıfın adıyla aynıdır
+    // parametre almaz
+    // tilda işareti koyulur ~
+    class sinif_ornek
+    {
+        public sinif_ornek()
+        {
+            Console.WriteLine("yapıcı");
+        }
+        ~sinif_ornek()
+        {
+            Console.WriteLine("yıkıcı çalıştı");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if(1==1)
+            {
+                sinif_ornek s1 = new sinif_ornek();
+            }
+            int a = Convert.ToInt32(Console.ReadLine());
+        }
+    }
+}
