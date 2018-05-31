@@ -10,6 +10,12 @@ namespace derstekikodlaricalistirma
         private double gpi;
         public double pi
         {
+            // gpi'nin erişimini kapatıp pi üzerinden kullanıcının girdiği pi değerini alıp
+            // ( - girmesi durumunda sonuç yanlış bulunacağı için) mutlak değerini alıp gpi'nin içine
+            // Bir özelliğe atama yapılmak istenildiğinde o özelliğe ait SET metodu çalışır. 
+            // Atanan değere SET metodu içerisinde value anahtar sözcüğü ile erişilir. 
+            // value anahtar sözcüğünün önceden belirlenmiş herhangi bir türü yoktur.
+            // Özelliğe atanacak değer hangi türden ise value da o türden olur.
             get
             {
                 return gpi;
