@@ -572,3 +572,100 @@ namespace derstekikodlaricalistirma
         }
     }
 }
+
+// Sınavda 40 puandı bu.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace derstekikodlaricalistirma
+{
+    class Geometrik
+    {
+        private double gpi;
+        public double pi
+        {
+            set
+            {
+                gpi = Math.Abs(value);
+                // main bloğunda pi'ye değer yolladığımda value
+                // kısmı o değer oluyo, mutlak değerini alıp işlem yaptıracağımız private
+                // gpi ye atıyor
+            }
+            get
+            {
+                return gpi;
+                // pi'yi çekmek istediğimizde gpi'yi return ediyo
+            }
+        }
+        private double yc;
+        public double r
+        {
+            set
+            {
+                yc = Math.Abs(value);
+            }
+            get
+            {
+                return yc;
+            }
+        }
+        public Geometrik() // nesne türetildiğinde if koşulu
+                           // sağlanmazsa gpi=3.14'e eşit oluyo
+        {
+            if (gpi <= 3 || gpi >=3.15)
+            gpi = 3.14d;
+        }
+        public Geometrik(double pi, double r) // nesne türetildiğinde çalışacak
+        {
+            this.pi = pi;
+            this.r = r;
+                
+        }
+        public double Cevre()
+        {
+            return 2 * pi * r;
+        }
+        public double Alan()
+        {
+            return pi*Math.Pow(r,2); // üssü almak için Math.Pow
+        }
+        public void yaz()
+        {
+            Console.WriteLine("alan : {0}", Alan());
+            Console.WriteLine("cevre : {0}",Cevre());
+            Console.WriteLine("----------------------");
+        }
+        // c#'da var olan >/< operatörlerinin işlevini değiştiriyoruz
+        // statik olarak ifade edilmeliymiş, ve karşılaştırma operatörü olduğu için bool kullanıyoz.
+        public static bool operator >(Geometrik g1,Geometrik g2)
+        {
+            if (g1.Alan() > g2.Alan()) return true;
+            else return false;
+        }
+        public static bool operator <(Geometrik g1, Geometrik g2)
+        {
+            if (g1.Alan() < g2.Alan()) return true;
+            else return false;
+        }
+        public override string ToString()
+        //c#'ın var olan bir metotunu değiştirirsek bunu c#'a override ile bildiriyoruz.
+        {
+            return "geometriğin alanı = " + Alan();
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Geometrik g1 = new Geometrik(3.14,2);
+            Geometrik g2 = new Geometrik(3.14, 3);
+            if (g1 > g2) Console.WriteLine("1.alan daha büyük");
+            else Console.WriteLine("2.alan daha büyük");
+            g1.yaz();
+            g2.yaz();
+
+        }
+    }
+}
