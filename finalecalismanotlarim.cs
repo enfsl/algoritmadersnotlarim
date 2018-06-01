@@ -651,6 +651,7 @@ namespace derstekikodlaricalistirma
         }
         public override string ToString()
         //c#'ın var olan bir metotunu değiştirirsek bunu c#'a override ile bildiriyoruz.
+        //ToString kısmında işlem yaptığım için onun ismini kullanıyom
         {
             return "geometriğin alanı = " + Alan();
         }
